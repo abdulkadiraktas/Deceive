@@ -31,8 +31,8 @@ namespace Deceive
                 Trace.WriteLine(ex);
                 // Show some kind of message so that Deceive doesn't just disappear.
                 MessageBox.Show(
-                    "Deceive encountered an error and couldn't properly initialize itself. " +
-                    "Please contact the creator through GitHub (https://github.com/molenzwiebel/deceive) or Discord.\n\n" + ex,
+                    "Deceive bir hatayla karşılaştı ve kendisini düzgün şekilde başlatamadı. " +
+                    "Lütfen içerik oluşturucuyla GitHub (https://github.com/molenzwiebel/deceive) veya Discord aracılığıyla iletişime geçin.\n\n" + ex,
                     DeceiveTitle,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -50,8 +50,8 @@ namespace Deceive
             if (Utils.IsClientRunning() && cmdArgs.All(x => x.ToLower() != "--allow-multiple-clients"))
             {
                 var result = MessageBox.Show(
-                    "The Riot Client is currently running. In order to mask your online status, the Riot Client needs to be started by Deceive. " +
-                    "Do you want Deceive to stop the Riot Client and games launched by it, so that it can restart with the proper configuration?",
+                    "Riot İstemcisi şu anda çalışıyor. Çevrimiçi durumunuzu maskelemek için, Riot İstemcisinin Deceive tarafından başlatılması gerekir. " +
+                    "Deceive'ın uygun konfigürasyonla yeniden başlatılabilmesi için Riot İstemcisini ve onun tarafından başlatılan oyunları durdurmasını istiyor musunuz?",
                     DeceiveTitle,
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question,
@@ -90,8 +90,7 @@ namespace Deceive
             if (riotClientPath == null)
             {
                 MessageBox.Show(
-                    "Deceive was unable to find the path to the Riot Client. If you have the game installed and it is working properly, " +
-                    "please file a bug report through GitHub (https://github.com/molenzwiebel/deceive) or Discord.",
+                    "Deceive, Riot İstemcisine giden yolu bulamadı. Oyunu yüklediyseniz ve düzgün çalışıyorsa, lütfen GitHub (https://github.com/molenzwiebel/deceive) veya Discord aracılığıyla bir hata raporu gönderin.",
                     DeceiveTitle,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -105,7 +104,7 @@ namespace Deceive
             var proxyServer = new ConfigProxy("https://clientconfig.rpg.riotgames.com", port);
 
             // Step 4: Start the Riot Client and wait for a connect.
-            var game = "league_of_legends";
+            var game = "valorant";
             if (cmdArgs.Any(x => x.ToLower() == "lor"))
             {
                 game = "bacon";
@@ -153,9 +152,7 @@ namespace Deceive
             if (chatHost == null)
             {
                 MessageBox.Show(
-                    "Deceive was unable to find Riot's chat server, please try again later. " +
-                    "If this issue persists and you can connect to chat normally without Deceive, " +
-                    "please file a bug report through GitHub (https://github.com/molenzwiebel/deceive) or Discord.",
+                    "Deceive, Riot'un sohbet sunucusunu bulamadı, lütfen daha sonra tekrar deneyin. Bu sorun devam ederse ve Deceive olmadan sohbete normal şekilde bağlanabiliyorsanız, lütfen GitHub (https://github.com/molenzwiebel/deceive) veya Discord üzerinden bir hata raporu gönderin.",
                     DeceiveTitle,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -193,9 +190,7 @@ namespace Deceive
                     {
                         Trace.WriteLine(e);
                         var result = MessageBox.Show(
-                            "Unable to reconnect to the chat server. Please check your internet connection." +
-                            "If this issue persists and you can connect to chat normally without Deceive, " +
-                            "please file a bug report through GitHub (https://github.com/molenzwiebel/deceive) or Discord.",
+                            "Deceive, Riot'un sohbet sunucusunu bulamadı, lütfen daha sonra tekrar deneyin. Bu sorun devam ederse ve Deceive olmadan sohbete normal şekilde bağlanabiliyorsanız, lütfen GitHub (https://github.com/molenzwiebel/deceive) veya Discord üzerinden bir hata raporu gönderin..",
                             DeceiveTitle,
                             MessageBoxButtons.RetryCancel,
                             MessageBoxIcon.Error,
